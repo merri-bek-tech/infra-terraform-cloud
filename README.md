@@ -4,11 +4,22 @@ Provision cloud infrastructure used by Merri-bek Tech
 
 # Pre-requisites
 
+## Your development machine
+
 1. Install Terraform
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
 2. Get issued a Digital Ocean Personal Access Token (PAT)
 Log into Digital Ocean's web interface and follow [these steps](https://docs.digitalocean.com/reference/api/create-personal-access-token/).
+
+## Your Digital Ocean account
+
+Merri-bek tech already has a digital ocean account setup. If you're setting this up for your own org, perform the following steps.
+
+* Create a personal account on digital ocean
+* Create a team, and setup billing details
+* Set the team to require two-factor auth (optional, but very sensible)
+* Create a new public/private keypair, with a passphrase. Store the passphrase securely in a password manager. Upload the public key to digital ocean, and name it `id-merri-bek-root`
 
 # Run
 

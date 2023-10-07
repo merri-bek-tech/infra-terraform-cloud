@@ -3,9 +3,9 @@ resource "digitalocean_droplet" "wiki-1" {
     name = "wiki-1"
     region = "syd1"
     size = "s-1vcpu-512mb-10gb"
-    # ssh_keys = [
-    #   data.digitalocean_ssh_key.terraform.id
-    # ]
+    ssh_keys = [
+      data.digitalocean_ssh_key.root.fingerprint
+    ]
 }
 
 resource "digitalocean_reserved_ip" "wiki" {
