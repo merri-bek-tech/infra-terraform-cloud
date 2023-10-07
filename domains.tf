@@ -41,4 +41,3 @@ resource "digitalocean_record" "spf" {
   name     = "@"
   value    = "spf1 include:spf.messagingengine.com ?all"
 }
-
