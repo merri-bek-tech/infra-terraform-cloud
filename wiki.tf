@@ -9,12 +9,8 @@ resource "digitalocean_droplet" "wiki-1" {
 }
 
 resource "digitalocean_reserved_ip" "wiki" {
-  region = "syd1"
-}
-
-resource "digitalocean_reserved_ip_assignment" "example" {
-  ip_address = digitalocean_reserved_ip.wiki.ip_address
   droplet_id = digitalocean_droplet.wiki-1.id
+  region     = digitalocean_droplet.wiki-1.region
 }
 
 resource "digitalocean_record" "wiki" {
@@ -23,3 +19,11 @@ resource "digitalocean_record" "wiki" {
   name   = "wiki"
   value  = digitalocean_reserved_ip.wiki.ip_address
 }
+
+resource "digitalocean_project_resources" "wiki-resources" {
+  project = digitalocean_project.default.id
+  resources = [
+    digitalocean_droplet.wiki-1.urn
+  ]
+}
+

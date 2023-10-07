@@ -2,6 +2,13 @@ resource "digitalocean_domain" "default" {
   name = "merri-bek.tech"
 }
 
+resource "digitalocean_project_resources" "domain-resources" {
+  project = digitalocean_project.default.id
+  resources = [
+    digitalocean_domain.default.urn
+  ]
+}
+
 # Email setup. Currently directing mail to Fastmail
 # @todo: Merri-bek tech needs it's own email setup
 
