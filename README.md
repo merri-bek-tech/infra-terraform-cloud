@@ -1,2 +1,9 @@
 # cloud-terraform
-Provision cloud infrastruture used by Merri-bek Tech
+
+Provision cloud infrastructure used by Merri-bek Tech
+
+# Pre-requisites
+
+Install Terraform
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
