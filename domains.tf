@@ -20,3 +20,25 @@ resource "digitalocean_record" "mx2" {
   priority = 20
   value    = "in2-smtp.messagingengine.com."
 }
+
+resource "digitalocean_record" "dkim1" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "fm1._domainkey"
+  value    = "fm1.merri-bek.tech.dkim.fmhosted.com."
+}
+
+resource "digitalocean_record" "dkim2" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "fm2._domainkey"
+  value    = "fm2.merri-bek.tech.dkim.fmhosted.com."
+}
+
+resource "digitalocean_record" "spf" {
+  domain   = digitalocean_domain.default.id
+  type     = "TXT"
+  name     = "@"
+  value    = "spf1 include:spf.messagingengine.com ?all"
+}
+
