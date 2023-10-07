@@ -5,6 +5,6 @@ resource "digitalocean_project" "merri-bek-tech" {
   environment = "Production"
   resources   = [
     digitalocean_droplet.wiki-1.urn,
-    digitalocean_domain.default-domain.urn
+    digitalocean_domain.default.urn
   ]
 }
