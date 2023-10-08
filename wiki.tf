@@ -21,6 +21,13 @@ resource "digitalocean_record" "wiki" {
   value  = digitalocean_reserved_ip.wiki.ip_address
 }
 
+resource "digitalocean_record" "wiki-subdomain" {
+  domain = digitalocean_domain.default.id
+  type   = "A"
+  name   = "*.wiki"
+  value  = digitalocean_reserved_ip.wiki.ip_address
+}
+
 resource "digitalocean_project_resources" "wiki-resources" {
   project = digitalocean_project.default.id
   resources = [
