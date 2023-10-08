@@ -1,6 +1,6 @@
 resource "digitalocean_droplet" "websites-1" {
     image = "ubuntu-23-04-x64"
-    name = "wiki-1"
+    name = "websites-1"
     region = "syd1"
     size = "s-1vcpu-512mb-10gb"
     backups = true
@@ -14,10 +14,17 @@ resource "digitalocean_reserved_ip" "websites" {
   region     = digitalocean_droplet.websites-1.region
 }
 
+resource "digitalocean_record" "www" {
+  domain = digitalocean_domain.default.id
+  type   = "A"
+  name   = "www"
+  value  = digitalocean_reserved_ip.websites.ip_address
+}
+
 resource "digitalocean_record" "websites" {
   domain = digitalocean_domain.default.id
   type   = "A"
-  name   = "@"
+  name   = "websites"
   value  = digitalocean_reserved_ip.websites.ip_address
 }
 
