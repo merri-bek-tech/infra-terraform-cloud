@@ -2,10 +2,15 @@ resource "digitalocean_domain" "default" {
   name = "merri-bek.tech"
 }
 
+resource "digitalocean_domain" "chat" {
+  name = "merri-bek.chat"
+}
+
 resource "digitalocean_project_resources" "domain-resources" {
   project = digitalocean_project.default.id
   resources = [
-    digitalocean_domain.default.urn
+    digitalocean_domain.default.urn,
+    digitalocean_domain.chat.urn
   ]
 }
 
