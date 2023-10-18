@@ -21,6 +21,13 @@ resource "digitalocean_record" "matrix" {
   value  = digitalocean_reserved_ip.matrix.ip_address
 }
 
+resource "digitalocean_record" "matrix-server" {
+  domain = digitalocean_domain.chat.id
+  type   = "A"
+  name   = "matrix"
+  value  = digitalocean_reserved_ip.matrix.ip_address
+}
+
 resource "digitalocean_project_resources" "matrix-resources" {
   project = digitalocean_project.default.id
   resources = [
