@@ -53,3 +53,10 @@ resource "digitalocean_record" "spf" {
   name     = "@"
   value    = "spf1 include:spf.messagingengine.com ?all"
 }
+
+resource "digitalocean_record" "ops-react-app" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "ops.merri-bek.tech"
+  value    = "merri-bek-tech.github.io."
+}
