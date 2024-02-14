@@ -57,6 +57,6 @@ resource "digitalocean_record" "spf" {
 resource "digitalocean_record" "ops-react-app" {
   domain   = digitalocean_domain.default.id
   type     = "CNAME"
-  name     = "ops.merri-bek.tech"
+  name     = "ops"
   value    = "merri-bek-tech.github.io."
 }
