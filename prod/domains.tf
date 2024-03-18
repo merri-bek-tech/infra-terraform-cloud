@@ -60,3 +60,10 @@ resource "digitalocean_record" "ops-react-app" {
   name     = "ops"
   value    = "merri-bek-tech.github.io."
 }
+
+resource "digitalocean_record" "parops-server" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "parops"
+  value    = "parops-43jac.ondigitalocean.app."
+}
