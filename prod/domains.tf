@@ -67,3 +67,10 @@ resource "digitalocean_record" "parops-server" {
   name     = "parops"
   value    = "parops-43jac.ondigitalocean.app."
 }
+
+resource "digitalocean_record" "parops-server-subdomain" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "*.parops"
+  value    = "parops-43jac.ondigitalocean.app."
+}
