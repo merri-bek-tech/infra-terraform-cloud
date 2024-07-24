@@ -60,14 +60,14 @@ resource "digitalocean_record" "lists-a" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "lists"
-  value    = "110.232.113.186."
+  value    = "110.232.113.186"
 }
 
-resource "digitalocean_record" "lists-aaa" {
+resource "digitalocean_record" "lists-aaaa" {
   domain   = digitalocean_domain.default.id
-  type     = "CNAME"
+  type     = "AAAA"
   name     = "lists"
-  value    = "2404:9400:2:0:216:3eff:fee2:6ca9."
+  value    = "2404:9400:2:0:216:3eff:fee2:6ca9"
 }
 
 resource "digitalocean_record" "lists-mx" {
@@ -96,7 +96,7 @@ resource "digitalocean_record" "lists-dkim" {
   domain   = digitalocean_domain.default.id
   type     = "TXT"
   name     = "mail._domainkey.lists"
-  value    = ""
+  value    = "v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3wfWRT1gstUolkpZwbCRC66AZBH0IgKpJCKzpWiWIPrX+zEJVLyb3VCar+lO4SZL7W8W6fh20gs0ol3qh+ESoQ52PJMLYymIiVyDsQkmB0qV3mtWT+jqetK8BZoP4DlWlJHN/jA9vJIN5HX3cHyzinV7aSgxRdzHxP1uKuZpNlxnZGaI1QxuD/3qy+jmw++DJcbi7zZX6li+6s"
 }
 
 // Apps
