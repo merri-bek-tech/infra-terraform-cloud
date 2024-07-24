@@ -54,6 +54,53 @@ resource "digitalocean_record" "spf" {
   value    = "spf1 include:spf.messagingengine.com ?all"
 }
 
+// Mailing list setup, currently hosted externally by www.mailmanlists.net
+
+resource "digitalocean_record" "lists-a" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "lists"
+  value    = "110.232.113.186."
+}
+
+resource "digitalocean_record" "lists-aaa" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "lists"
+  value    = "2404:9400:2:0:216:3eff:fee2:6ca9."
+}
+
+resource "digitalocean_record" "lists-mx" {
+  domain   = digitalocean_domain.default.id
+  type     = "MX"
+  name     = "lists"
+  priority = 10
+  value    = "syd.mailmanlists.au."
+}
+
+resource "digitalocean_record" "lists-spf" {
+  domain   = digitalocean_domain.default.id
+  type     = "TXT"
+  name     = "lists"
+  value    = "v=spf1 a mx ip4:110.232.113.186 ip6:2404:9400:2:0:216:3eff:fee2:6ca9 ~all"
+}
+
+resource "digitalocean_record" "lists-dmarc" {
+  domain   = digitalocean_domain.default.id
+  type     = "TXT"
+  name     = "_dmarc.lists"
+  value    = "v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@mailmanlists.net; ruf=mailto:dmarc@mailmanlists.net"
+}
+
+resource "digitalocean_record" "lists-dkim" {
+  domain   = digitalocean_domain.default.id
+  type     = "TXT"
+  name     = "mail._domainkey.lists"
+  value    = ""
+}
+
+// Apps
+
 resource "digitalocean_record" "ops-react-app" {
   domain   = digitalocean_domain.default.id
   type     = "CNAME"
