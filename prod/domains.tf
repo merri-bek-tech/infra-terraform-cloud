@@ -121,3 +121,12 @@ resource "digitalocean_record" "parops-server-subdomain" {
   name     = "*.parops"
   value    = "parops-43jac.ondigitalocean.app."
 }
+
+// Sites
+
+resource "digitalocean_record" "site-radish" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "wikipedia.radish"
+  value    = "159.196.178.209"
+}
