@@ -127,6 +127,13 @@ resource "digitalocean_record" "parops-server-subdomain" {
 resource "digitalocean_record" "site-radish" {
   domain   = digitalocean_domain.default.id
   type     = "A"
-  name     = "wikipedia.radish"
+  name     = "*.radish"
   value    = "159.196.178.209"
+}
+
+resource "digitalocean_record" "site-mason" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "*.mason"
+  value    = "wiki.mbt.home.mattcen.com."
 }
