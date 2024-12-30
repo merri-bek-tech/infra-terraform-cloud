@@ -137,3 +137,11 @@ resource "digitalocean_record" "site-mason" {
   name     = "*.mason"
   value    = "wiki.mbt.home.mattcen.com."
 }
+
+resource "digitalocean_record" "site-cloud" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "cloud.sites"
+  value    = "cloud-site-manager-jv3j6.ondigitalocean.app."
+}
+
