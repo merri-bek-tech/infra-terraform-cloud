@@ -140,8 +140,8 @@ resource "digitalocean_record" "site-mason" {
 
 resource "digitalocean_record" "site-cloud" {
   domain   = digitalocean_domain.default.id
-  type     = "CNAME"
+  type     = "A"
   name     = "cloud.sites"
-  value    = "cloud-site-manager-jv3j6.ondigitalocean.app."
+  value    = "170.64.151.138"
 }
 
