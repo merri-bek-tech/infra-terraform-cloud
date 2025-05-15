@@ -5,8 +5,7 @@ resource "digitalocean_droplet" "matrix-1" {
     size = "s-2vcpu-4gb"
     backups = true
     ssh_keys = [
-      data.digitalocean_ssh_key.root.fingerprint,
-      data.digitalocean_ssh_key.jade-admin
+      data.digitalocean_ssh_key.root.fingerprint
     ]
 }
 

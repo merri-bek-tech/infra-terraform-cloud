@@ -124,24 +124,31 @@ resource "digitalocean_record" "parops-server-subdomain" {
 
 // Sites
 
-resource "digitalocean_record" "site-radish" {
+resource "digitalocean_record" "node-radish" {
   domain   = digitalocean_domain.default.id
   type     = "A"
-  name     = "*.radish"
+  name     = "radish.nodes"
   value    = "159.196.178.209"
 }
 
-resource "digitalocean_record" "site-mason" {
+resource "digitalocean_record" "node-radish-subdomains" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "*.radish.nodes"
+  value    = "159.196.178.209"
+}
+
+resource "digitalocean_record" "node-mason" {
   domain   = digitalocean_domain.default.id
   type     = "CNAME"
-  name     = "*.mason"
+  name     = "mason.nodes"
   value    = "wiki.mbt.home.mattcen.com."
 }
 
-resource "digitalocean_record" "site-cloud" {
+resource "digitalocean_record" "node-cloud" {
   domain   = digitalocean_domain.default.id
   type     = "A"
-  name     = "cloud.sites"
+  name     = "cloud.nodes"
   value    = "170.64.151.138"
 }
 
