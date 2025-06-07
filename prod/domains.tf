@@ -14,7 +14,8 @@ resource "digitalocean_project_resources" "domain-resources" {
   project = digitalocean_project.default.id
   resources = [
     digitalocean_domain.default.urn,
-    digitalocean_domain.chat.urn
+    digitalocean_domain.chat.urn,
+    digitalocean_domain.social.urn
   ]
 }
 
