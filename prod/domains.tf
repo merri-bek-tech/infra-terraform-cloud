@@ -6,6 +6,10 @@ resource "digitalocean_domain" "chat" {
   name = "merri-bek.chat"
 }
 
+resource "digitalocean_domain" "social" {
+  name = "merri-bek.social"
+}
+
 resource "digitalocean_project_resources" "domain-resources" {
   project = digitalocean_project.default.id
   resources = [
@@ -150,5 +154,21 @@ resource "digitalocean_record" "node-cloud" {
   type     = "A"
   name     = "cloud.nodes"
   value    = "170.64.151.138"
+}
+
+// Test Apps for Social Media working group
+
+resource "digitalocean_record" "test-mastodon-tech" {
+  domain = digitalocean_domain.default.id
+  type   = "A"
+  name   = "mastodon.test"
+  value  = "170.64.175.156"
+}
+
+resource "digitalocean_record" "test-mastodon-social" {
+  domain = digitalocean_domain.social.id
+  type   = "A"
+  name   = "mastodon.test"
+  value  = "170.64.175.156"
 }
 
