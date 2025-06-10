@@ -159,13 +159,6 @@ resource "digitalocean_record" "node-cloud" {
 
 // Test Apps for Social Media working group
 
-resource "digitalocean_record" "test-mastodon-tech" {
-  domain = digitalocean_domain.default.id
-  type   = "A"
-  name   = "mastodon.test"
-  value  = "170.64.175.156"
-}
-
 resource "digitalocean_record" "test-mastodon-social" {
   domain = digitalocean_domain.social.id
   type   = "A"
@@ -173,3 +166,9 @@ resource "digitalocean_record" "test-mastodon-social" {
   value  = "170.64.175.156"
 }
 
+resource "digitalocean_record" "test-bonfire-social" {
+  domain = digitalocean_domain.social.id
+  type   = "A"
+  name   = "bonfire.test"
+  value  = "209.38.30.99"
+}
