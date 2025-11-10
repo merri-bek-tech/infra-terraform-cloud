@@ -157,6 +157,13 @@ resource "digitalocean_record" "node-cloud" {
   value    = "170.64.151.138"
 }
 
+resource "digitalocean_record" "node-cloud-subdomains" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "*.cloud.nodes"
+  value    = "170.64.151.138"
+}
+
 // Test Apps for Social Media working group
 
 resource "digitalocean_record" "test-mastodon-social" {
