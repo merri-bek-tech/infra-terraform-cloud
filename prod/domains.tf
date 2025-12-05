@@ -133,14 +133,14 @@ resource "digitalocean_record" "node-radish" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "radish.nodes"
-  value    = "159.196.178.209"
+  value    = "144.6.209.176"
 }
 
 resource "digitalocean_record" "node-radish-subdomains" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "*.radish.nodes"
-  value    = "159.196.178.209"
+  value    = "144.6.209.176"
 }
 
 resource "digitalocean_record" "node-mason" {
