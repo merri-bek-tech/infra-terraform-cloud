@@ -133,14 +133,14 @@ resource "digitalocean_record" "node-radish" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "radish.nodes"
-  value    = "144.6.209.176"
+  value    = "144.6.187.148"
 }
 
 resource "digitalocean_record" "node-radish-subdomains" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "*.radish.nodes"
-  value    = "144.6.209.176"
+  value    = "144.6.187.148"
 }
 
 resource "digitalocean_record" "node-mason" {
@@ -154,14 +154,14 @@ resource "digitalocean_record" "node-cloud" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "cloud.nodes"
-  value    = "170.64.151.138"
+  value    = "209.38.87.9"
 }
 
 resource "digitalocean_record" "node-cloud-subdomains" {
   domain   = digitalocean_domain.default.id
   type     = "A"
   name     = "*.cloud.nodes"
-  value    = "170.64.151.138"
+  value    = "209.38.87.9"
 }
 
 // Test Apps for Social Media working group
