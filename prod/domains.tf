@@ -52,11 +52,18 @@ resource "digitalocean_record" "dkim2" {
   value    = "fm2.merri-bek.tech.dkim.fmhosted.com."
 }
 
+resource "digitalocean_record" "dkim3" {
+  domain   = digitalocean_domain.default.id
+  type     = "CNAME"
+  name     = "fm3._domainkey"
+  value    = "fm3.merri-bek.tech.dkim.fmhosted.com."
+}
+
 resource "digitalocean_record" "spf" {
   domain   = digitalocean_domain.default.id
   type     = "TXT"
   name     = "@"
-  value    = "spf1 include:spf.messagingengine.com ?all"
+  value    = "v=spf1 include:spf.messagingengine.com ?all"
 }
 
 // Mailing list setup, currently hosted externally by www.mailmanlists.net
