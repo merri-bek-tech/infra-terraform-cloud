@@ -150,6 +150,20 @@ resource "digitalocean_record" "node-radish-subdomains" {
   value    = "144.6.187.148"
 }
 
+resource "digitalocean_record" "node-exo" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "exo.nodes"
+  value    = "120.159.95.114"
+}
+
+resource "digitalocean_record" "node-exo-subdomains" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "*.exo.nodes"
+  value    = "120.159.95.114"
+}
+
 resource "digitalocean_record" "node-mason" {
   domain   = digitalocean_domain.default.id
   type     = "CNAME"
