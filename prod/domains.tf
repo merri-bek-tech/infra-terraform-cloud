@@ -185,18 +185,14 @@ resource "digitalocean_record" "node-cloud-subdomains" {
   value    = "209.38.87.9"
 }
 
-// Test Apps for Social Media working group
+// Test Apps
 
-resource "digitalocean_record" "test-mastodon-social" {
-  domain = digitalocean_domain.social.id
-  type   = "A"
-  name   = "mastodon.test"
-  value  = "170.64.175.156"
+resource "digitalocean_record" "oxicloud-test" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "oxicloud-test"
+  value    = "209.38.95.112"
 }
 
-resource "digitalocean_record" "test-bonfire-social" {
-  domain = digitalocean_domain.social.id
-  type   = "A"
-  name   = "bonfire.test"
-  value  = "209.38.30.99"
-}
+
+
