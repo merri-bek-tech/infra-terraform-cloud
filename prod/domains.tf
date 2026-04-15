@@ -194,5 +194,10 @@ resource "digitalocean_record" "oxicloud-test" {
   value    = "209.38.95.112"
 }
 
-
+resource "digitalocean_record" "oxicloud-test-subdomains" {
+  domain   = digitalocean_domain.default.id
+  type     = "A"
+  name     = "*.oxicloud-test"
+  value    = "209.38.95.112"
+}
 
